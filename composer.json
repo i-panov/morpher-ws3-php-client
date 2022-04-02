@@ -1,0 +1,24 @@
+{
+    "name": "morpher/ws3",
+    "description": "morpher.ru",
+    "type": "library",
+    "require": {
+        "php": "^7.3|8.1",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Morpher\\Ws3\\": "src/"
+        },
+        "files": ["src/helpers.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
