@@ -47,6 +47,12 @@ class MorpherClient extends MorpherClientBase
             'GET', 'DELETE', 'HEAD'
         ]) ? RequestOptions::QUERY : RequestOptions::FORM_PARAMS;
 
+        if (!empty($params['text_body'])) {
+            $headers['Content-Type'] = 'text/plain; charset=utf-8';
+            $bodyParam = RequestOptions::BODY;
+            $params = $params['text_body'];
+        }
+
         $response = $guzzle->request($httpMethod, $path, [
             RequestOptions::HEADERS => $headers,
             $bodyParam => $params,

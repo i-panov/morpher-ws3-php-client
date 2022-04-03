@@ -15,4 +15,12 @@ class MorpherDeclensionTest extends TestCase
         $this->assertEquals('Теста', $result->main->genitive);
         $this->assertEquals('Тесты', $result->plural->nominative);
     }
+
+    public function test_addressMarks() {
+        $result = MorpherClient::create()->request('POST', 'russian/addstressmarks', [
+            'text_body' => 'Белки питаются белками',
+        ]);
+
+        var_dump($result);
+    }
 }

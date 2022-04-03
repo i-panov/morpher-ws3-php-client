@@ -42,7 +42,11 @@ abstract class MorpherLanguage {
         return $d;
     }
 
-    public abstract function declensionFunctionExtendedResultNames(): DeclensionFunctionExtendedResult;
+    public function declensionFunctionExtendedResultNames() {
+        throw new \BadMethodCallException('unimplemented');
+    }
 
-    public abstract function declensionFunctionTupleNames(): DeclensionFunctionTuple;
+    public function declensionFunctionTupleNames(): DeclensionFunctionTuple {
+        throw new \BadMethodCallException('unimplemented');
+    }
 }
