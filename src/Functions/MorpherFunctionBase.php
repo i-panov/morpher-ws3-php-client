@@ -33,7 +33,8 @@ abstract class MorpherFunctionBase
 
     public function getName(): string {
         $classParts = explode('\\', get_class($this));
-        return strtolower(current(explode('Function', end($classParts))));
+        $name = current(explode('Function', end($classParts)));
+        return strtolower(implode('-', preg_split('/\B(?=[A-Z])/s', $name)));
     }
 
     public function getPath(): string {

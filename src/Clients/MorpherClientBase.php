@@ -4,6 +4,7 @@ namespace Morpher\Ws3\Clients;
 
 use Morpher\Ws3\Wrappers\MorpherDeclension;
 use Morpher\Ws3\Wrappers\MorpherSpell;
+use Morpher\Ws3\Wrappers\MorpherSpellOrdinal;
 
 abstract class MorpherClientBase {
     /** @var string */
@@ -30,5 +31,9 @@ abstract class MorpherClientBase {
 
     public function spell(): MorpherSpell {
         return new MorpherSpell($this);
+    }
+
+    public function spellOrdinal(): MorpherSpellOrdinal {
+        return new MorpherSpellOrdinal($this);
     }
 }
