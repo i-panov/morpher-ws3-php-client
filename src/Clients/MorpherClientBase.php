@@ -3,6 +3,7 @@
 namespace Morpher\Ws3\Clients;
 
 use Morpher\Ws3\Wrappers\MorpherDeclension;
+use Morpher\Ws3\Wrappers\MorpherGenders;
 use Morpher\Ws3\Wrappers\MorpherSpell;
 use Morpher\Ws3\Wrappers\MorpherSpellDate;
 use Morpher\Ws3\Wrappers\MorpherSpellOrdinal;
@@ -40,5 +41,9 @@ abstract class MorpherClientBase {
 
     public function spellDate(): MorpherSpellDate {
         return new MorpherSpellDate($this);
+    }
+
+    public function genders(): MorpherGenders {
+        return new MorpherGenders($this);
     }
 }
