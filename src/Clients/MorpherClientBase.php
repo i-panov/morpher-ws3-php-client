@@ -2,6 +2,7 @@
 
 namespace Morpher\Ws3\Clients;
 
+use Morpher\Ws3\Wrappers\MorpherAdjectivize;
 use Morpher\Ws3\Wrappers\MorpherDeclension;
 use Morpher\Ws3\Wrappers\MorpherGenders;
 use Morpher\Ws3\Wrappers\MorpherSpell;
@@ -45,5 +46,9 @@ abstract class MorpherClientBase {
 
     public function genders(): MorpherGenders {
         return new MorpherGenders($this);
+    }
+
+    public function adjectivize(): MorpherAdjectivize {
+        return new MorpherAdjectivize($this);
     }
 }
