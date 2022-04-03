@@ -12,15 +12,8 @@ use Morpher\Ws3\Languages\RussianLanguage;
 use Morpher\Ws3\Languages\UkrainianLanguage;
 use Morpher\Ws3\Models\DeclensionFunctionResult;
 
-class MorpherDeclension
+class MorpherDeclension extends MorpherWrapper
 {
-    /** @var MorpherClientBase */
-    private $client;
-
-    public function __construct(MorpherClientBase $client) {
-        $this->client = $client;
-    }
-
     /**
      * @throws GuzzleException
      * @throws MorpherException
