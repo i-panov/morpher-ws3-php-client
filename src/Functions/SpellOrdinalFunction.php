@@ -29,6 +29,6 @@ class SpellOrdinalFunction extends MorpherFunctionBase
             'unit' => require_non_empty_string($unit, 'unit'),
         ];
 
-        return new SpellFunctionResult($this->request($params));
+        return new SpellFunctionResult($this->request($params), $this->getLanguage());
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Morpher\Ws3\Models;
 
+use Morpher\Ws3\Languages\MorpherLanguage;
+
 /**
  * Падежи
  */
@@ -56,13 +58,16 @@ class Declensions
      */
     public $prepositionalO;
 
-    public function __construct(array $data) {
-        $this->nominative = $data['И'] ?? '';
-        $this->genitive = $data['Р'] ?? '';
-        $this->dative = $data['Д'] ?? '';
-        $this->accusative = $data['В'] ?? '';
-        $this->instrumental = $data['Т'] ?? '';
-        $this->prepositional = $data['П'] ?? '';
-        $this->prepositionalO = $data['П_о'] ?? '';
+    public static function load(array $data, MorpherLanguage $language): self {
+        $model = new self();
+        $names = $language->declensionNames();
+        $model->nominative = $data[$names->nominative] ?? '';
+        $model->genitive = $data[$names->genitive] ?? '';
+        $model->dative = $data[$names->dative] ?? '';
+        $model->accusative = $data[$names->accusative] ?? '';
+        $model->instrumental = $data[$names->instrumental] ?? '';
+        $model->prepositional = $data[$names->prepositional] ?? '';
+        $model->prepositionalO = $data[$names->prepositionalO] ?? '';
+        return $model;
     }
 }

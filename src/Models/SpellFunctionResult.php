@@ -2,6 +2,8 @@
 
 namespace Morpher\Ws3\Models;
 
+use Morpher\Ws3\Languages\MorpherLanguage;
+
 class SpellFunctionResult
 {
     /** @var Declensions */
@@ -10,8 +12,8 @@ class SpellFunctionResult
     /** @var Declensions */
     public $unitDeclensions;
 
-    public function __construct(array $data) {
-        $this->numberDeclensions = new Declensions($data['n'] ?? []);
-        $this->unitDeclensions = new Declensions($data['unit'] ?? []);
+    public function __construct(array $data, MorpherLanguage $language) {
+        $this->numberDeclensions = Declensions::load($data['n'] ?? [], $language);
+        $this->unitDeclensions = Declensions::load($data['unit'] ?? [], $language);
     }
 }

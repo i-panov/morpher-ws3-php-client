@@ -56,10 +56,10 @@ class DeclensionFunctionResult
     public $fullName;
 
     public function __construct(array $data, MorpherLanguage $language) {
-        $this->main = new Declensions($data);
+        $this->main = Declensions::load($data, $language);
 
         if (!empty($data['множественное']) && is_array($data['множественное'])) {
-            $this->plural = new Declensions($data['множественное']);
+            $this->plural = Declensions::load($data['множественное'], $language);
         }
 
         $this->whereIs = $data['где'] ?? '';

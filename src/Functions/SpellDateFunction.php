@@ -27,6 +27,6 @@ class SpellDateFunction extends MorpherFunctionBase
             'date' => $date->format('Y-m-d'),
         ];
 
-        return new Declensions($this->request($params));
+        return Declensions::load($this->request($params), $this->getLanguage());
     }
 }
