@@ -2,6 +2,8 @@
 
 namespace Morpher\Ws3\Clients;
 
+use Morpher\Ws3\Wrappers\MorpherDeclension;
+
 abstract class MorpherClientBase {
     /** @var string */
     private $token;
@@ -20,4 +22,8 @@ abstract class MorpherClientBase {
     }
 
     public abstract function request(string $httpMethod, string $path, array $params = []): array;
+
+    public function declension(): MorpherDeclension {
+        return new MorpherDeclension($this);
+    }
 }

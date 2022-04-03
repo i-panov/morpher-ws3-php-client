@@ -11,14 +11,14 @@ class DeclensionFunctionResult
      *
      * @var Declensions
      */
-    public $mainDeclensions;
+    public $main;
 
     /**
      * Падежи во множественном числе
      *
      * @var Declensions|null
      */
-    public $pluralDeclensions;
+    public $plural;
 
     /**
      * Где
@@ -56,10 +56,10 @@ class DeclensionFunctionResult
     public $fullName;
 
     public function __construct(array $data, MorpherLanguage $language) {
-        $this->mainDeclensions = new Declensions($data);
+        $this->main = new Declensions($data);
 
         if (!empty($data['множественное']) && is_array($data['множественное'])) {
-            $this->pluralDeclensions = new Declensions($data['множественное']);
+            $this->plural = new Declensions($data['множественное']);
         }
 
         $this->whereIs = $data['где'] ?? '';

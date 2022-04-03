@@ -3,7 +3,7 @@
     "description": "morpher.ru",
     "type": "library",
     "require": {
-        "php": "^7.3|8.1",
+        "php": ">=7.3",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^7.0"
     },

@@ -12,6 +12,10 @@ class MorpherClient extends MorpherClientBase
     /** @var string */
     private $baseUrl = 'https://ws3.morpher.ru';
 
+    public static function create(): self {
+        return new self();
+    }
+
     public function setBaseUrl(string $value): self {
         $this->baseUrl = require_non_empty_string($value, 'baseUrl');
         return $this;
